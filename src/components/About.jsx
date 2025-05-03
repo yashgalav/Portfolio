@@ -1,41 +1,43 @@
-import { Code ,Globe, Download} from 'lucide-react';
+import { Code, Globe, Download } from 'lucide-react';
 import React from 'react'
 import { useRecoilValue } from 'recoil';
 import { darkAtom } from '../store/atoms/DarkAtom';
+import Lottie from 'lottie-react';
+import animationData from "/src/assets/about.json"
+import Slider from './Slider';
 
 const About = () => {
   const darkMode = useRecoilValue(darkAtom);
-  
-  
+
+
   return (
-    <section className="py-20 px-6">
+    <div className=" py-20 px-6 ">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4">About Me</h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
-          My journey and expertise in software development
-        </p>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
-            <Code className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-bold mb-2">Languages</h3>
-            <p>HTML, CSS, JavaScript, React, Node.js</p>
+        <h2 className="text-3xl font-bold text-center mb-4">Know Who I'M</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 '>
+          <div className='flex justify-center items-center'>
+              <span className='flex items-center w-52 h-52 md:h-96 md:w-96'>
+                <Lottie animationData={animationData} loop={true} />
+              </span>
           </div>
-          
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
-            <Globe className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-bold mb-2">Experience</h3>
-            <p>3+ years of professional development experience</p>
-          </div>
-          
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
-            <Download className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-bold mb-2">Projects</h3>
-            <p>Completed 20+ major projects</p>
-          </div>
+        <section className="p-6 max-w-3xl mx-auto">
+          <ul className={`list-disc list-inside space-y-2 ${darkMode?"text-gray-300": "text-black"}`}>
+            <li>Hi Everyone, I am <strong>Yash Kumar</strong> from India</li>
+            <li>👨‍💻 <strong>Software Engineer with 3+ years of experience</strong> in full-stack web development</li>
+            <li>⚙️ Skilled in building scalable, maintainable, and performance-driven applications</li>
+            <li>🧰 Proficient in modern tech stacks including <strong>React, Node.js, Spring Boot, and MySQL</strong></li>
+            <li>📈 Experience working with startups, agencies, and solo entrepreneurs</li>
+            <li>🎯 Capable of taking a project from concept to launch — independently or as part of a team</li>
+            <li>🤝 Committed to clear communication, timely delivery, and exceeding client expectations</li>
+            <li>🌍 Open to freelance opportunities globally — <strong>let's build something great together!</strong></li>
+          </ul>
+        </section>
         </div>
+        
+
+        <Slider/>
       </div>
-    </section>
+    </div>
   );
 };
 

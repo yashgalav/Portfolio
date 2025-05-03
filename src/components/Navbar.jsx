@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -6,7 +6,7 @@ import { darkAtom } from "../store/atoms/DarkAtom";
 import Button from "./Button";
 import {textColor } from "../store/atoms/CustomColor";
 
-const NavLink = ({ className }) => {
+export const NavLink = ({ className }) => {
   const textHoverColor = useRecoilValue(textColor);
 
   return (
@@ -33,8 +33,12 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const offMenu =() =>{
+    setIsOpen(false);
+  }
+
   return (
-    <nav className={`flex justify-center shadow-lg mx-auto px-6 py-4 ${darkMode ? "bg-gray-900":"bg-slate-300 "}`}>
+    <nav  className={`flex justify-center shadow-lg mx-auto px-6 py-4 ${darkMode ? "bg-gray-800":"bg-slate-300 "}`}>
       <div className="container flex justify-between w-screen ">
         
         <div className="flex items-center ">
@@ -58,15 +62,16 @@ function Navbar() {
           />
 
           {/* Mobile Menu Button */}
-          <div className="relative md:hidden bg-slate-200">
+          <div className={`relative md:hidden ${darkMode ?`bg-gray-800`:`bg-slate-300`}`}>
 
             <Button
               onClick={toggleIsOpen}
               isOpen={isOpen}
               trueIcon={<X />}
               falseIcon={<Menu />}
+              onBlur={offMenu}
             />
-
+            
             {/* Mobile Links Dropdown */}
             {(isOpen &&
               <div className={`absolute right-0 top-full mt-2 ${darkMode ? `bg-gray-800` : `bg-white`} shadow-md rounded-lg p-4 z-50`}>

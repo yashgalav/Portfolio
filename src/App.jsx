@@ -21,7 +21,7 @@ function App() {
     <Router>
       {/* <Layout> */}
         
-        <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-slate-100 text-black '}`}>
+        <div className={` min-h-screen relative ${darkMode ? 'bg-gray-900 text-white' : 'bg-slate-100 text-black '}`}>
         <Navbar  />
         <Routes>
           
@@ -31,7 +31,7 @@ function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        
+        <Footer/>
         </div>
       {/* </Layout> */}
     </Router>

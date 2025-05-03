@@ -8,5 +8,4 @@
 
   body {
     @apply overflow-x-hidden;
-    @apply md:overflow-y-hidden;
   }
