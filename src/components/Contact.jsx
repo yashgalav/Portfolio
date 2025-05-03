@@ -1,11 +1,9 @@
-import { Mail, PhoneCall } from 'lucide-react';
-import React, { useRef } from 'react'
-import { Link, } from 'react-router-dom';
+import React, { useRef, useState } from 'react'
 import { useRecoilValue } from 'recoil';
 import { darkAtom } from '../store/atoms/DarkAtom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import emailjs from '@emailjs/browser';
+import InputBox from './InputBox';
+import ContactPageLowerComponent from './ContactPageLowerComponent';
 
 const Contact = () => {
   const darkMode = useRecoilValue(darkAtom);
@@ -14,38 +12,50 @@ const Contact = () => {
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const form = useRef();
 
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({});
 
-  const navigateToGitHub = () => {
-    window.open("https://github.com/yashgalav", "_blank")
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
-  const navigateToLinkedIn = () => {
-    window.open("https://linkedin.com/in/yash-kumar-78b8041b7", "_blank")
-  }
-  const navigateToTwitter = () => {
-    window.open("https://x.com/thenameisyaashh", "_blank")
-  }
-  
+  const validate = () => {
+    let tempErrors = {};
+    if (!formData.name) tempErrors.name = "Name is required";
+    if (!formData.email) tempErrors.email = "Email is required";
+    if (!formData.message) tempErrors.message = "Message is required";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(serviceID)
-  console.log(templateID)
 
-    emailjs.sendForm(
-      serviceID,
-      templateID,
-      form.current,
-      publicKey
-    )
-      .then((result) => {
-        alert('Message sent!');
-        console.log(result.text);
-      })
-      .catch((error) => {
-        alert('Message failed to send.');
-        console.log(error);
-      });
+    if (validate()) {
+      emailjs.sendForm(
+        serviceID,
+        templateID,
+        form.current,
+        publicKey
+      )
+        .then((result) => {
+          alert('Message sent!');
+          console.log(result.text);
+        })
+        .catch((error) => {
+          alert('Message failed to send.');
+          console.log(error);
+        });
+    }
   };
 
 
@@ -62,60 +72,45 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           <div className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
             <form onSubmit={sendEmail} ref={form} className="space-y-6">
-              <div>
-                <label className="block mb-2">Name</label>
-                <input
-                  type="text"
-                  name= "name"
-                  className={`w-full px-4 py-2 rounded-lg ${darkMode ? `bg-gray-700` : `bg-gray-100`}`}
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  className={`w-full px-4 py-2 rounded-lg ${darkMode ? `bg-gray-700` : `bg-gray-100`}`}
-                  placeholder="Your email"
-                />
-              </div>
+    
+              <InputBox
+                label={"Name"}
+                name={"name"}
+                placeholder={"Your name"}
+                err={errors.name}
+                value={formData.name}
+                onchange={handleChange}
+              />
+
+              <InputBox
+                label={"Email"}
+                name={"email"}
+                placeholder={"Your email"}
+                err={errors.email}
+                value={formData.email}
+                onchange={handleChange}
+              />
+              
               <div>
                 <label className="block mb-2">Message</label>
                 <textarea
+                  required
                   name="message"
+                  value= {formData.message}
+                  onChange={handleChange}
                   className={`w-full px-4 py-2 rounded-lg ${darkMode ? `bg-gray-700` : `bg-gray-100`}`}
                   rows="4"
                   placeholder="Your message"
                 ></textarea>
+                {errors.message && <p className="error">{errors.message}</p>}
               </div>
-              <button  type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+              <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
                 Send Message
               </button>
             </form>
           </div>
 
-          <div className="space-y-6 mb-10 md:mb-0">
-            <div className="flex items-center space-x-4">
-              <Mail className="w-6 h-6 text-purple-600" />
-              <span>yashgalav12345@gmail.com</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <PhoneCall className="w-6 h-6 text-purple-600" />
-              <span>+91 70489 36402</span>
-            </div>
-            <div className="flex space-x-4 ">
-              <Link className={`${darkMode ? `text-gray-300` : `text-gray-600`} hover:text-purple-600`} >
-                <FontAwesomeIcon icon={faGithub} onClick={navigateToGitHub} className="w-6 h-6" />
-              </Link>
-              <Link className={`${darkMode ? `text-gray-300` : `text-gray-600`} hover:text-purple-600`} >
-                <FontAwesomeIcon onClick={navigateToLinkedIn} icon={faLinkedin} className="w-6 h-6" />
-              </Link>
-              <Link className={`${darkMode ? `text-gray-300` : `text-gray-600`} hover:text-purple-600`} >
-                <FontAwesomeIcon onClick={navigateToTwitter} icon={faXTwitter} className="w-6 h-6" />
-              </Link>
-            </div>
-          </div>
+          <ContactPageLowerComponent/>
         </div>
       </div>
     </section>
