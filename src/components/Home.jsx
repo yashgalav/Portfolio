@@ -9,11 +9,15 @@ import SubHeading from './SubHeading';
 import { textColor } from '../store/atoms/CustomColor';
 import Banner from './Banner';
 import Footer from './Footer';
+import NormalButton from './NormalButton';
 
 const Home = () => {
   const navigate = useNavigate();
   const darkMode = useRecoilValue(darkAtom);
   const customTextColor = useRecoilValue(textColor);
+  const navigateToGitHub = () =>{
+    window.open("https://github.com/yashgalav","_blank")
+  }
 
 
   const handleClick = () => {
@@ -55,10 +59,12 @@ const Home = () => {
             <SubHeading text={`Software Engineer with 3+ years of experience in building exceptional digital experiences`} />
 
             <div className="flex space-x-4">
-              <button className="flex items-center space-x-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-800 ">
-                <Github size={20} />
-                <span>GitHub</span>
-              </button>
+              
+              <NormalButton
+                icon={<Github size={20} />}
+                buttonName={"GitHub"}
+                onclick={navigateToGitHub}
+              />
               <button onClick={handleClick} className={`px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:text-white hover:bg-purple-600 }`}>
                 Contact Me
               </button>
