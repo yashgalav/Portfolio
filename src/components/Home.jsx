@@ -41,7 +41,7 @@ const Home = () => {
                   3000,
                   'MERN Stack Developer',
                   3000,
-                  'Java full Stack Developer',
+                  'Java Full Stack Developer',
                   3000,
                   'Open Source Contributor',
                   3000,

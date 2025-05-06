@@ -50,14 +50,14 @@ const Service = () => {
           <ServiceCard 
           anime={webAnime} 
           headingSize={"text-center md:text-3xl "} 
-          heading={"Web Developement"} 
+          heading={"Web Development"} 
           description={"I specialize in building modern, full-stack web applications using cutting-edge technologies. On the front end, I craft responsive and high-performance interfaces with React.js and Next.js. For back-end development, I work with Node.js and Express, as well as Java with Spring Boot, to create secure and scalable APIs. I’m experienced with both relational and NoSQL databases, including PostgreSQL, MySQL, and MongoDB, ensuring that your data is handled efficiently and reliably. Whether you're looking for a dynamic single-page application or a robust enterprise system, I deliver solutions tailored to your needs, from design to deployment."}
           />
           
           <ServiceCard 
           anime={mobileAnime} 
           headingSize={"text-center md:text-3xl md:mt-10 "} 
-          heading={"Mobile Developement"}
+          heading={"Mobile Development"}
           imageClass={"md:mt-14"} 
           description={"I build cross-platform mobile applications using Flutter, allowing for a single codebase to run smoothly on both Android and iOS devices. With Flutter’s fast development cycle and expressive UI capabilities, I deliver visually engaging, high-performance apps that provide a seamless user experience. Whether you need a business app, a startup MVP, or a feature-rich mobile product, I focus on clean architecture, responsive design, and efficient state management to ensure your app is reliable and scalable."}/>
           
