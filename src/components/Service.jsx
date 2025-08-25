@@ -3,12 +3,12 @@ import React from 'react'
 import { useRecoilValue } from 'recoil';
 import { darkAtom } from '../store/atoms/DarkAtom';
 import ServiceCard from './ServiceCard';
-import serviceAnime from '/src/assets/service-anime.json'
+import serviceAnime from '/src/animations/service-anime.json'
 import SubHeading from './SubHeading';
 import CustomLottie from './CustomLottie';
-import webAnime from "/src/assets/web-anime.json"
-import uxAnime from "/src/assets/ux-anime.json"
-import mobileAnime from "/src/assets/mobile-anime.json"
+import webAnime from "/src/animations/web-anime.json"
+import uxAnime from "/src/animations/ux-anime.json"
+import mobileAnime from "/src/animations/mobile-anime.json"
 
 const Service = () => {
   const darkMode = useRecoilValue(darkAtom);

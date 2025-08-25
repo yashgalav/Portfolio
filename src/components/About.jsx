@@ -3,7 +3,7 @@ import React from 'react'
 import { useRecoilValue } from 'recoil';
 import { darkAtom } from '../store/atoms/DarkAtom';
 import Lottie from 'lottie-react';
-import animationData from "/src/assets/about.json"
+import animationData from "/src/animations/about.json"
 import Slider from './Slider';
 
 const About = () => {

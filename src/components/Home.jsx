@@ -10,6 +10,7 @@ import { textColor } from '../store/atoms/CustomColor';
 import Banner from './Banner';
 import Footer from './Footer';
 import NormalButton from './NormalButton';
+import yash_hero from "../assets/yash_hero.png"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const Home = () => {
 
           <div className="md:w-1/2 mt-12 md:mt-0">
             <img
-              src="/src/assets/yash_hero.png"
+              src={yash_hero}
               alt="Professional headshot placeholder"
               className=" w-64 h-auto md:w-96 md:h-auto object-cover mx-auto "
             />
