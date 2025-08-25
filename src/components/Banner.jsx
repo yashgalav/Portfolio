@@ -2,6 +2,7 @@ import React from 'react'
 import StarGif from './StarGif'
 import { useRecoilValue } from 'recoil'
 import { darkAtom } from '../store/atoms/DarkAtom'
+import block from "../assets/block.png"
 
 export default function Banner() {
     const darkMode = useRecoilValue(darkAtom)
@@ -28,7 +29,7 @@ export default function Banner() {
                         Put themselves in the merchant's shoes. It is meant to partner
                         on the long run.
                     </div>
-                    <img className='h-32 w-52 md:mt-14' src="/src/assets/block.png" alt="" />
+                    <img className='h-32 w-52 md:mt-14' src={block} alt="" />
                 </div>
             </div>
         </div>

@@ -3,23 +3,35 @@ import Marquee from 'react-fast-marquee'
 import { useRecoilValue } from 'recoil';
 import { darkAtom } from '../store/atoms/DarkAtom';
 import { useMediaQuery } from 'react-responsive';
+import express from "../assets/expressimg.png";
+import java from "../assets/javaimg.png";
+import jira from "../assets/jiraimg.png"
+import mongo from "../assets/mongodbimg.png"
+import mysql from "../assets/mysqlimg.png"
+import next from "../assets/nextimg.png"
+import node from "../assets/nodeimg.png"
+import postgres from "../assets/postgresimg.png"
+import postman from "../assets/postmanimg.png"
+import react from "../assets/reactimg.png"
+import slack from "../assets/slackimg.png"
+import springboot from "../assets/springbootimg.png"
 
 export default function Slider() {
   const darkMode = useRecoilValue(darkAtom);
   const isMobile = useMediaQuery({ maxWidth: 600 });
   const imgs = [
-    "/src/assets/expressimg.png",
-    "/src/assets/javaimg.png",
-    "/src/assets/jiraimg.png",
-    "/src/assets/mongodbimg.png",
-    "/src/assets/mysqlimg.png",
-    "/src/assets/nextimg.png",
-    "/src/assets/nodeimg.png",
-    "/src/assets/postgresimg.png",
-    "/src/assets/postmanimg.png",
-    "/src/assets/reactimg.png",
-    "/src/assets/slackimg.png",
-    "/src/assets/springbootimg.png",
+    express,
+    java,
+    jira,
+    mongo,
+    mysql,
+    next,
+    node,
+    postgres,
+    postman,
+    react,
+    slack,
+    springboot,
   ]
 
 
