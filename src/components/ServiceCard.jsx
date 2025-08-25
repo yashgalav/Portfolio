@@ -14,7 +14,7 @@ export default function ServiceCard({ anime, heading, description, imageClass, k
         >
             <CustomLottie data={anime} customClass={`${imageClass}   md:w-[300px] md:h-[150%]`} />
             <Heading text={heading} size={headingSize} color={`${darkMode? `text-gray-300` : `text-gray-600`}`}/>
-            <p className={`text-center mt-4 font-medium  ${darkMode ? `text-gray-300` : `text-gray-600`}`}>{description}</p>
+            <p className={` mt-4 font-medium  ${darkMode ? `text-gray-300` : `text-gray-600`}`}>{description}</p>
         </div>
     )
 }

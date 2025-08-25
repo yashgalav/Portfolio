@@ -41,33 +41,58 @@ const Service = () => {
   return (
     <div className="py-20 px-6">
       <div className=" container mx-auto">
-        
-        <CustomLottie data={serviceAnime} customClass={'md:w-[60%]'}/>
-        
-        <SubHeading customClass={"text-center  mb-12"} text={"What I can offer to help your business grow"}/>
+
+        <CustomLottie data={serviceAnime} customClass={'md:w-[60%]'} />
+
+        <SubHeading customClass={"text-center  mb-12"} text={"What I can offer to help your business grow"} />
 
         <div className="grid md:grid-cols-3 gap-8">
-          <ServiceCard 
-          anime={webAnime} 
-          headingSize={"text-center md:text-3xl "} 
-          heading={"Web Development"} 
-          description={"I specialize in building modern, full-stack web applications using cutting-edge technologies. On the front end, I craft responsive and high-performance interfaces with React.js and Next.js. For back-end development, I work with Node.js and Express, as well as Java with Spring Boot, to create secure and scalable APIs. I’m experienced with both relational and NoSQL databases, including PostgreSQL, MySQL, and MongoDB, ensuring that your data is handled efficiently and reliably. Whether you're looking for a dynamic single-page application or a robust enterprise system, I deliver solutions tailored to your needs, from design to deployment."}
+          <ServiceCard
+            anime={webAnime}
+            headingSize={"text-center md:text-3xl "}
+            heading={"Web Development"}
+            description={
+              <>
+                <ul class="space-y-3 text-lg leading-relaxed">
+                  <li>🔷 <span class="font-semibold">Front-end Magic:</span> Building responsive & high-performance UIs with <strong>React.js</strong> & <strong>Next.js</strong></li>
+                  <li>🔷 <span class="font-semibold">Back-end Power:</span> Creating secure & scalable APIs using <strong>Node.js + Express</strong> & <strong>Spring Boot (Java)</strong></li>
+                  <li>🔷 <span class="font-semibold">Data Mastery:</span> Handling relational & NoSQL databases — <strong>PostgreSQL</strong>, <strong>MySQL</strong> & <strong>MongoDB</strong></li>
+                  <li>🔷 <span class="font-semibold">Versatile Apps:</span> From sleek single-page apps to robust enterprise-grade systems</li>
+                  <li>🔷 <span class="font-semibold">Full Journey:</span> Design ➝ Development ➝ Deployment with efficiency & quality</li>
+                </ul>
+              </>
+            }
           />
-          
-          <ServiceCard 
-          anime={mobileAnime} 
-          headingSize={"text-center md:text-3xl md:mt-10 "} 
-          heading={"Mobile Development"}
-          imageClass={"md:mt-14"} 
-          description={"I build cross-platform mobile applications using Flutter, allowing for a single codebase to run smoothly on both Android and iOS devices. With Flutter’s fast development cycle and expressive UI capabilities, I deliver visually engaging, high-performance apps that provide a seamless user experience. Whether you need a business app, a startup MVP, or a feature-rich mobile product, I focus on clean architecture, responsive design, and efficient state management to ensure your app is reliable and scalable."}/>
-          
-          <ServiceCard 
-          anime={uxAnime} 
-          headingSize={"text-center md:text-3xl md:mt-10 mt-5"} 
-          heading={"UI/UX  Design"}
-          imageClass={"md:mt-14"}
-          description={"I design intuitive and user-centered interfaces that enhance usability and create memorable digital experiences. My UI/UX design process focuses on understanding user behavior and aligning it with business goals through thoughtful layout, clear navigation, and responsive design principles. Whether it's for a website or a mobile app, I ensure every screen is both visually appealing and functionally effective. From wireframing and prototyping to final design, I use modern tools and best practices to deliver seamless and engaging user journeys."} />
 
+          <ServiceCard
+            anime={mobileAnime}
+            headingSize={"text-center md:text-3xl md:mt-10 "}
+            heading={"Mobile Development"}
+            imageClass={"md:mt-14"}
+            description={<section class="max-w-3xl mx-auto p-6">
+              <ul class="space-y-3 text-lg leading-relaxed">
+                <li>🔷 <span class="font-semibold">Cross-Platform Power:</span> Building apps with <strong>Flutter</strong> from a single codebase for <strong>Android</strong> & <strong>iOS</strong></li>
+                <li>🔷 <span class="font-semibold">Fast Development:</span> Leveraging Flutter’s hot reload & rapid iteration for quicker delivery</li>
+                <li>🔷 <span class="font-semibold">Engaging UI:</span> Creating visually appealing & high-performance apps with expressive Flutter widgets</li>
+                <li>🔷 <span class="font-semibold">Versatile Solutions:</span> From business apps & startup MVPs to feature-rich mobile products</li>
+                <li>🔷 <span class="font-semibold">Robust Architecture:</span> Clean code, responsive design & efficient state management for scalability & reliability</li>
+              </ul>
+            </section>}
+          />
+
+          <ServiceCard
+            anime={uxAnime}
+            headingSize={"text-center md:text-3xl md:mt-10 mt-5"}
+            heading={"🎨 UI/UX Design"}
+            imageClass={"md:mt-14"}
+            description={<ul class="space-y-3 text-lg leading-relaxed">
+              <li>🔷 <span class="font-semibold">User-Centered Design:</span> Creating intuitive interfaces that enhance usability & deliver memorable digital experiences</li>
+              <li>🔷 <span class="font-semibold">Behavior-Driven Approach:</span> Aligning user needs with business goals through thoughtful layouts & clear navigation</li>
+              <li>🔷 <span class="font-semibold">Responsive Focus:</span> Designing adaptive screens that look great & work seamlessly on all devices</li>
+              <li>🔷 <span class="font-semibold">End-to-End Process:</span> From wireframing & prototyping to polished final designs</li>
+              <li>🔷 <span class="font-semibold">Modern Tools & Best Practices:</span> Leveraging the latest design systems & workflows for engaging user journeys</li>
+            </ul>}
+          />
         </div>
       </div>
     </div>

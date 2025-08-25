@@ -2,9 +2,9 @@ import React from 'react'
 import { useRecoilValue } from 'recoil'
 import { darkAtom } from '../store/atoms/DarkAtom'
 import NormalButton from './NormalButton';
-import { Link2 } from 'lucide-react';
+import { Code, Code2, Github, Link2 } from 'lucide-react';
 
-export default function WorkCard({ title, description ,onclick}) {
+export default function WorkCard({ title, description ,onclick, link, github }) {
     const darkMode = useRecoilValue(darkAtom);
     
     return (
@@ -14,7 +14,7 @@ export default function WorkCard({ title, description ,onclick}) {
             <div className="w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg">
                 <iframe
                     className="w-full h-full"
-                    src="https://www.youtube.com/embed/fmXTuLvFlRU"
+                    src={link}
                     title="YouTube Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -22,16 +22,23 @@ export default function WorkCard({ title, description ,onclick}) {
                 ></iframe>
             </div>
 
-            <div className="p-4">
+            <div className="p-4 ">
                 <h3 className="text-xl font-bold mb-2">{title}</h3>
                 <div className={`${darkMode ? `text-gray-300` : `text-gray-600`}`}>{description}</div>
             </div>
-            <div className='flex justify-start items-start p-2  '>
-                <NormalButton
+            <div className='flex justify-start items-start p-2 space-x-2 '>
+                {onclick && <NormalButton 
                     buttonName={"Visit"}
                     icon={<Link2 />}
                     onclick={onclick}
+                />}
+                {github && 
+                    <NormalButton 
+                    buttonName={"Code"}
+                    icon={<Code2 />}
+                    onclick={github}
                 />
+                }
             </div>
         </div>
     )

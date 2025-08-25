@@ -10,7 +10,23 @@ const Work = () => {
   const darkMode = useRecoilValue(darkAtom);
 
   const navigateToPayMentApp = () => {
-    window.open("", "_blank")
+    window.open("https://github.com/yashgalav/payment-webapp", "_blank")
+  }
+
+  const navigateToDiwaliLux = () => {
+    window.open("https://diwalilux.com/", "_blank")
+  }
+
+  const navigateToDiwaliLuxGit = () => {
+    window.open("https://github.com/yashgalav/DiwaliLux", "_blank")
+  }
+
+  const navigateToMedium = () => {
+    window.open("https://medium-lite.vercel.app/blogs", "_blank")
+  }
+
+  const navigateToMediumGit = () => {
+    window.open("https://github.com/yashgalav/medium", "_blank")
   }
 
   // 
@@ -45,20 +61,63 @@ const Work = () => {
         <SubHeading customClass={"text-center mb-12"} text={"Check out some of my latest projects"} />
 
         <div className="grid  md:grid-cols-3 gap-8">
+
           <WorkCard
-            title={"💳 MERN Stack Payment App"}
+            title={"🛒 E-commerce Website (Client Work)"}
+            link={"https://www.youtube.com/embed/_w5dV1ofba8"}
+            github={navigateToDiwaliLuxGit}
             description={
-              <>✨ <strong>Key Features:</strong>
-                  <ul>
-                    <li>🔐 <strong>User Authentication</strong> (JWT-based)</li>
-                    <li>💸 <strong>Send & Receive Payments</strong> instantly</li>
-                    <li>👤 <strong>Profile & Wallet Management</strong></li>
-                    <li>📱 <strong>Responsive Design</strong> for mobile & desktop</li>
-                  </ul>
+              <>
+                <strong>✨ Key Features:</strong>
+                <ul >
+                  <li>🔐 <strong>Authentication:</strong> Secure login & signup</li>
+                  <li>🛍️ <strong>Product Catalog:</strong> Browse & search products</li>
+                  <li>🛒 <strong>Shopping Cart:</strong> Add, update & remove items</li>
+                  <li>💳 <strong>Payments:</strong> Integrated checkout system</li>
+                  <li>📦 <strong>Orders:</strong> Track purchases & history</li>
+                  <li>📱 <strong>Responsive:</strong> Optimized for all devices</li>
+                </ul>
               </>
             }
-          onclick={navigateToPayMentApp}
+            onclick={navigateToDiwaliLux}
           />
+           <WorkCard
+            title={"📝 Medium Clone (Full-Stack Blog Platform)"}
+            link={"https://www.youtube.com/embed/lBiszrn4Suo"}
+            github={navigateToMediumGit}
+            description={
+              <>
+                <strong>✨ Key Features:</strong>
+                <ul>
+                  <li>🔐 <strong>Authentication:</strong> Secure login with JWT</li>
+                  <li>✍️ <strong>Publishing:</strong> Create & publish articles</li>
+                  <li>📖 <strong>Explore:</strong> Browse & read blogs</li>
+                  <li>👤 <strong>Profiles:</strong> Manage user accounts</li>
+                  <li>📱 <strong>Responsive:</strong> Works on all devices</li>
+                </ul>
+              </>
+
+            }
+            onclick={navigateToMedium}
+          />
+
+          <WorkCard
+            title={"💳 MERN Stack Payment App"}
+            link={"https://www.youtube.com/embed/fmXTuLvFlRU"}
+            github={navigateToPayMentApp}
+            description={
+              <>✨ <strong>Key Features:</strong>
+                <ul>
+                  <li>🔐 <strong>User Authentication</strong> (JWT-based)</li>
+                  <li>💸 <strong>Send & Receive Payments</strong> instantly</li>
+                  <li>👤 <strong>Profile & Wallet Management</strong></li>
+                  <li>📱 <strong>Responsive Design</strong> for mobile & desktop</li>
+                </ul>
+              </>
+            }
+            
+          />
+
         </div>
       </div>
     </section>
